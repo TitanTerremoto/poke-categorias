@@ -2,7 +2,7 @@
 """Genera el índice PMD que usa poke-categorias.html.
 
 Lee tracker.json y sprite/NNNN/AnimData.xml de un clon de PMDCollab/SpriteCollab
-y reescribe el bloque entre /*PMD-DATA-START*/ y /*PMD-DATA-END*/ del HTML.
+y reescribe el bloque entre /*PMD-DATA-START*/ y /*PMD-DATA-END*/ de data/pokedata.js.
 Así el juego sabe QUÉ retratos (emociones) y QUÉ poses existen de verdad para
 cada especie, sin descargar el tracker de 10 MB en cada carga.
 
@@ -10,7 +10,7 @@ Clon liviano (solo lo necesario):
   git clone --depth 1 --filter=blob:none --no-checkout https://github.com/PMDCollab/SpriteCollab sc
   cd sc && git sparse-checkout set --no-cone /tracker.json '/sprite/*/AnimData.xml' && git checkout
 Uso:
-  python3 tools/build_pmd_index.py ../sc index.html
+  python3 tools/build_pmd_index.py ../sc data/pokedata.js
 """
 import json, os, re, sys, xml.etree.ElementTree as ET
 
